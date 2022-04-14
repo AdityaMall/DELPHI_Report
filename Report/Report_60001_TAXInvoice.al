@@ -1,0 +1,160 @@
+report 60001 "TAX Invoice"
+{
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All;
+    Caption = 'TAX Invoice Report';
+    DefaultLayout = RDLC;
+    RDLCLayout = 'TAXInvoice.rdl';
+    dataset
+    {
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
+        {
+            DataItemTableView = sorting("No.");
+            RequestFilterFields = "No.";
+            column(Curr; "Currency Code")
+            {
+            }
+            column(No_; "No.")
+            {
+            }
+            column(Due_Date; "Due Date")
+            {
+            }
+            column(Posting_Description; "Posting Description")
+            {
+            }
+            column(External_Document_No_; "External Document No.")
+            {
+
+            }
+            column(Payment_Terms_Code; "Payment Terms Code")
+            {
+            }
+            column(Document_Date; "Document Date")
+            {
+            }
+            column(Bill_to_Name; "Bill-to Name")
+            {
+            }
+            column(Bill_to_Address; "Bill-to Address")
+            {
+            }
+            column(Bill_to_City; "Bill-to City")
+            {
+            }
+            column(Bill_to_County; "Bill-to County")
+            {
+            }
+            column(Bill_to_Post_Code; "Bill-to Post Code")
+            {
+            }
+            column(Bill_to_Country_Region_Code; "Bill-to Country/Region Code")
+            {
+
+            }
+            column(VAT_Registration_No_; "VAT Registration No.")
+            {
+            }
+
+            column(CompnyPic; CompnyInfo.Picture)
+            {
+            }
+            column(CompnyName; CompnyInfo.Name)
+            {
+            }
+            column(CompnyAddres; CompnyInfo.Address)
+            {
+            }
+            column(CompnyAdd2; CompnyInfo."Address 2")
+            {
+            }
+            column(CompnyCity; CompnyInfo.City)
+            {
+            }
+            column(CompnyCountry; CompnyInfo.County)
+            {
+            }
+            column(CompnyPostCode; CompnyInfo."Post Code")
+            {
+            }
+            column(CompnyRegionCode; CompnyInfo."Country/Region Code")
+            {
+            }
+            column(CompnyVAT; CompnyInfo."VAT Registration No.")
+            {
+            }
+            column(BankName; BankAccount.Name)
+            {
+            }
+            column(BankAddress; BankAccount.Address)
+            {
+            }
+            column(BankAccountNo; BankAccount."Bank Account No.")
+            {
+
+            }
+            column(BankSwift; BankAccount."SWIFT Code")
+            {
+
+            }
+            column(BankIBAN; BankAccount.IBAN)
+            {
+
+            }
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
+            {
+                DataItemTableView = sorting("Document No.");
+                DataItemLink = "Document No." = field("No.");
+                DataItemLinkReference = "Sales invoice header";
+
+                column(Description; Description)
+                {
+                }
+                column(Quantity; Quantity)
+                {
+                }
+                column(Unit_Price; "Unit Price")
+                {
+                    AutoFormatExpression = "Sales Invoice Header"."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(Amount; Amount)
+                {
+                    AutoFormatExpression = "Sales Invoice Header"."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(VAT__; "VAT %")
+                {
+                }
+                column(Amount_Including_VAT; "Amount Including VAT")
+                {
+                    AutoFormatExpression = "Sales Invoice Header"."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(AmountInWords; AmountInWords)
+                {
+
+                }
+            }
+            trigger OnAfterGetRecord()
+            begin
+                if BankAccount.get("Bank Account") then;
+                CompnyInfo.get();
+                CompnyInfo.CalcFields(Picture);
+                RepCheck.InitTextVariable();
+                "Sales Invoice Header".CalcFields("Amount Including VAT");
+                Round := round("Sales Invoice Header"."Amount Including VAT", 0.01);
+                RepCheck.FormatNoText(NoText, Round, "Sales Invoice Header"."Currency Code");
+                AmountInWords := NoText[1];
+            end;
+        }
+    }
+
+    var
+        BankAccount: Record "Bank Account";
+        CompnyInfo: Record "Company Information";
+        RepCheck: Report "Check";
+        NoText: array[2] of Text;
+        AmountInWords: Text;
+        Round: Decimal;
+}
