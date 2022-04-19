@@ -93,7 +93,7 @@ report 60004 PaymentVoucher
 
             dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
             {
-               
+
                 DataItemTableView = sorting("Vendor No.") WHERE("Document Type" = FILTER(Invoice));
                 DataItemLink = "Closed by Entry No." = field("Entry No.");
                 DataItemLinkReference = "G/L Entry";
@@ -143,7 +143,6 @@ report 60004 PaymentVoucher
                         TRN := Vendor."VAT Registration No.";
                         //  currCode := Vendor."Currency Code";
                         city := Vendor.City;
-                        regionCode := Vendor."Country/Region Code";
 
                     end;
                 end;
@@ -161,11 +160,9 @@ report 60004 PaymentVoucher
         Postcode: Code[50];
         country: text[100];
         city: text[100];
-        regionCode: code[30];
         TRN: Text[100];
         Customer: Record Customer;
         Vendor: Record Vendor;
-
         PaymentModeDis: text[100];
         PaidThrogh: text[100];
         paymentMethodCode: Record "Payment Method";
