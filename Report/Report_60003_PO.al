@@ -144,7 +144,7 @@ report 60003 "Purchase Order Report"
                 begin
                     CompnyInfo.get();
                     CompnyInfo.CalcFields(Picture);
-                    cust.get("Purchase Header"."End Customer");
+                   if cust.get("Purchase Header"."End Customer") then;
                 end;
             }
         }

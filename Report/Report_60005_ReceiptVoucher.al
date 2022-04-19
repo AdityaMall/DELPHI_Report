@@ -95,7 +95,7 @@ report 60005 ReceiptVoucher
             dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
             {
                 DataItemTableView = sorting("Customer No.") WHERE("Document Type" = FILTER(Invoice));
-                DataItemLink = "Customer No." = field("Source No.");
+                DataItemLink = "Closed by Entry No." = field("Entry No.");
                 DataItemLinkReference = "G/L Entry";
                 column(custDocument_No_; "Document No.")
                 {
@@ -110,8 +110,6 @@ report 60005 ReceiptVoucher
 
                 }
             }
-
-
             trigger OnAfterGetRecord()
             begin
                 CompnyInfo.get();
@@ -131,14 +129,10 @@ report 60005 ReceiptVoucher
                         city := Customer.City;
                         regionCode := Customer."Country/Region Code";
                     end;
-
-
             end;
 
         }
     }
-
-
     var
         CompnyInfo: Record "Company Information";
         SourceName: Text;

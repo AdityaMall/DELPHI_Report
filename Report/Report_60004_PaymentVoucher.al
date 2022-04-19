@@ -93,9 +93,9 @@ report 60004 PaymentVoucher
 
             dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
             {
-                // DataItemTableView = sorting("Vendor No.");
+               
                 DataItemTableView = sorting("Vendor No.") WHERE("Document Type" = FILTER(Invoice));
-                DataItemLink = "Vendor No." = field("Source No.");
+                DataItemLink = "Closed by Entry No." = field("Entry No.");
                 DataItemLinkReference = "G/L Entry";
                 column(Invoice_Number; "Document No.")
                 {
@@ -113,7 +113,7 @@ report 60004 PaymentVoucher
                 {
 
                 }
-                
+
 
 
             }
@@ -128,7 +128,6 @@ report 60004 PaymentVoucher
 
 
                 if "G/L Entry"."Document No." = "G/L Entry"."Document No." then
-                    // if "G/L Entry"."Source Type" = "G/L Entry"."Source Type"::"Bank Account" 
                     if "G/L Entry"."Bal. Account Type" = "G/L Entry"."Bal. Account Type"::"Bank Account" then begin
                         bank.get("Bal. Account No.");
                         PaidThrogh := bank.Name;
@@ -150,7 +149,6 @@ report 60004 PaymentVoucher
                 end;
 
             end;
-
 
         }
     }

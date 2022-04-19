@@ -16,7 +16,6 @@ report 60006 CashVoucher
             {
 
             }
-
             column(Posting_Date; "Posting Date")
             {
 
@@ -37,7 +36,6 @@ report 60006 CashVoucher
             {
 
             }
-
             column(Debit_Amount; "Debit Amount")
             {
 

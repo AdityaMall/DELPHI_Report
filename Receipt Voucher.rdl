@@ -20,7 +20,7 @@
             <Value>=First(Fields!CompnyPic.Value, "DataSet_Result")</Value>
             <MIMEType>image/jpeg</MIMEType>
             <Sizing>FitProportional</Sizing>
-            <Top>0.6875in</Top>
+            <Top>0.5625in</Top>
             <Left>0.59375in</Left>
             <Height>1.19792in</Height>
             <Width>2.63542in</Width>
@@ -164,9 +164,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.25in</Top>
+            <Top>0.375in</Top>
             <Left>3.30903in</Left>
-            <Height>1.63542in</Height>
+            <Height>1.44792in</Height>
             <Width>4.19096in</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -200,7 +200,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>2.41666in</Top>
+            <Top>2.29166in</Top>
             <Left>3.17361in</Left>
             <Height>0.29167in</Height>
             <Width>2.02431in</Width>
@@ -492,7 +492,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>3.02083in</Top>
+            <Top>2.89583in</Top>
             <Left>0.61805in</Left>
             <Height>1.14582in</Height>
             <Width>5.28038in</Width>
@@ -541,7 +541,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!Amount.Value)</Value>
+                    <Value>=Abs(Sum(Fields!Amount.Value))</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>14pt</FontSize>
@@ -552,7 +552,7 @@
                     <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>14pt</FontSize>
                       <Color>White</Color>
                     </Style>
                   </TextRun>
@@ -563,7 +563,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>3.02083in</Top>
+            <Top>2.89583in</Top>
             <Left>5.95399in</Left>
             <Height>1.14582in</Height>
             <Width>1.54601in</Width>
@@ -1118,7 +1118,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
+                                  <Value>=Abs(Fields!Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1183,7 +1183,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
+                                  <Value>=Abs(Fields!Amount.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -1253,7 +1253,7 @@
             </Style>
           </Tablix>
           <Line Name="Line1">
-            <Top>2.19667in</Top>
+            <Top>2.07167in</Top>
             <Left>0.55083in</Left>
             <Height>0in</Height>
             <Width>6.94918in</Width>

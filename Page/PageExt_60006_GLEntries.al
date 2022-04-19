@@ -5,15 +5,7 @@ pageextension 60006 GLEntriesPageExt extends "General Ledger Entries"
         addafter(Description)
         {
 
-            /*
-             field("Invoice Date"; rec."Invoice Date")
-             {
-                 ApplicationArea = all;
-             }
-             field("Invoice Amount"; rec."Invoice Amount")
-             {
-                 ApplicationArea = all;
-             }*/
+           
             field("Payment Mode"; rec."Payment Mode")
             {
                 ApplicationArea = all;
@@ -30,6 +22,7 @@ pageextension 60006 GLEntriesPageExt extends "General Ledger Entries"
     {
         addafter("F&unctions")
         {
+            
             action(Report1)
             {
 

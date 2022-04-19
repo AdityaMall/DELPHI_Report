@@ -787,7 +787,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!Amount.Value)</Value>
+                    <Value>=Abs(Sum(Fields!Amount.Value))</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>18pt</FontSize>
@@ -1328,7 +1328,7 @@
                                   <Style />
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
+                                  <Value>=Abs(Fields!Amount.Value)</Value>
                                   <Style>
                                     <Format>n2</Format>
                                   </Style>
@@ -1379,7 +1379,7 @@
                                   <Style />
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!Amount.Value</Value>
+                                  <Value>=Abs(Fields!Amount.Value)</Value>
                                   <Style>
                                     <Format>n2</Format>
                                   </Style>
