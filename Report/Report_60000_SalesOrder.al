@@ -134,6 +134,5 @@ report 60000 "Sales Order Report"
 
 
     var
-        myInt: Integer;
         CompnyInfo: Record "Company Information";
 }

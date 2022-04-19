@@ -127,7 +127,6 @@ report 60005 ReceiptVoucher
                         TRN := Customer."VAT Registration No.";
                         //  currCode := Customer."Currency Code";
                         city := Customer.City;
-                        regionCode := Customer."Country/Region Code";
                     end;
             end;
 
@@ -140,7 +139,6 @@ report 60005 ReceiptVoucher
         Postcode: Code[50];
         country: text[100];
         city: text[100];
-        regionCode: code[30];
         TRN: Text[100];
         Customer: Record Customer;
         Vendor: Record Vendor;

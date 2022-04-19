@@ -16,7 +16,6 @@ report 60007 "Journal Voucher Report"
             {
 
             }
-
             column(Posting_Date; "Posting Date")
             {
 
